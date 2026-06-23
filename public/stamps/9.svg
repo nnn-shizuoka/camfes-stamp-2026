@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="占い">
+  <defs><radialGradient id="g" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#fff7ed"/><stop offset="65%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#4c1d95"/></radialGradient></defs>
+  <circle cx="64" cy="64" r="57" fill="#fff8ea" stroke="#4c1d95" stroke-width="5"/><circle cx="64" cy="64" r="45" fill="none" stroke="#c4b5fd" stroke-width="4" stroke-dasharray="2 7"/><circle cx="64" cy="64" r="34" fill="url(#g)"/>
+  <circle cx="64" cy="58" r="14" fill="none" stroke="#fff8ea" stroke-width="4"/><path d="M64 72v14" stroke="#fff8ea" stroke-width="5" stroke-linecap="round"/><path d="M54 86h20" stroke="#fff8ea" stroke-width="5" stroke-linecap="round"/>
+  <text x="64" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6" font-family="system-ui, sans-serif">占い</text>
+</svg>

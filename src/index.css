@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+html, body, #root {
+  min-height: 100%;
+}
+
+html {
+  font-family:
+    "M PLUS Rounded 1c",
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic UI",
+    "Yu Gothic",
+    "Noto Sans JP",
+    system-ui,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  font-feature-settings: "palt";
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 28%),
+    radial-gradient(circle at right 20%, rgba(0, 210, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, #2c1a04 0%, #120a02 100%);
+}
+
+.font-rounded {
+  font-family:
+    "M PLUS Rounded 1c",
+    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic UI",
+    "Yu Gothic",
+    "Noto Sans JP",
+    system-ui,
+    sans-serif;
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stamp-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

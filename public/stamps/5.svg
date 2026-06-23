@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="イントロドン">
+  <defs><radialGradient id="g" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#fff7ed"/><stop offset="65%" stop-color="#ec4899"/><stop offset="100%" stop-color="#9d174d"/></radialGradient></defs>
+  <circle cx="64" cy="64" r="57" fill="#fff8ea" stroke="#9d174d" stroke-width="5"/><circle cx="64" cy="64" r="45" fill="none" stroke="#f472b6" stroke-width="4" stroke-dasharray="2 7"/><circle cx="64" cy="64" r="34" fill="url(#g)"/>
+  <path d="M56 50v25c0 5 4 9 9 9s9-4 9-9V53l10-3V43l-28 7z" fill="#fff8ea"/>
+  <circle cx="64" cy="88" r="4" fill="#fff8ea"/>
+  <text x="64" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#7c2d12" font-family="system-ui, sans-serif">イントロ</text>
+</svg>

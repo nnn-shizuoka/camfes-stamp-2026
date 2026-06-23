@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAMFES Stamp Rally 2026</title>
+    <script>
+      const base = '/camfes-stamp-2026'
+      const path = location.pathname.replace(new RegExp('^' + base), '') || '/'
+      location.replace(base + '/' + path.replace(/^\//, '') + location.search + location.hash)
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="飲食">
+  <defs><radialGradient id="g" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#fff7ed"/><stop offset="65%" stop-color="#f97316"/><stop offset="100%" stop-color="#9a3412"/></radialGradient></defs>
+  <circle cx="64" cy="64" r="57" fill="#fff8ea" stroke="#9a3412" stroke-width="5"/>
+  <circle cx="64" cy="64" r="45" fill="none" stroke="#fb923c" stroke-width="4" stroke-dasharray="2 7"/>
+  <circle cx="64" cy="64" r="34" fill="url(#g)"/>
+  <path d="M45 58h38l-4 10H49z" fill="#fff8ea"/><path d="M48 68h32l-3 10H51z" fill="#fff8ea"/><rect x="46" y="52" width="36" height="4" rx="2" fill="#fff8ea"/>
+  <text x="64" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#7c2d12" font-family="system-ui, sans-serif">飲食</text>
+</svg>
