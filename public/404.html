@@ -6,7 +6,11 @@
 </head>
 <body>
   <script>
-    location.href = "/camfes-stamp-2026/";
+    (function () {
+      const base = "/camfes-stamp-2026";
+      const path = location.pathname.startsWith(base) ? location.pathname.slice(base.length) : location.pathname;
+      location.replace(`${base}/#${path}${location.search}${location.hash}`);
+    })();
   </script>
 </body>
 </html>

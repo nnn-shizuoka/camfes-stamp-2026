@@ -1,10 +1,13 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import { STAMP_TOTAL } from './stamp-data'
 import type { StampId } from './stamp-types'
 
 const STORAGE_KEY = 'stamps'
 
-const readStamps = (): StampId[] => {
+let currentStamps: StampId[] = readStamps()
+const listeners = new Set<() => void>()
+
+function readStamps(): StampId[] {
   if (typeof window === 'undefined') return []
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY)
@@ -18,35 +21,54 @@ const readStamps = (): StampId[] => {
   }
 }
 
+function writeStamps(nextStamps: StampId[]) {
+  currentStamps = nextStamps
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextStamps))
+  }
+  listeners.forEach((listener) => listener())
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener)
+  return () => listeners.delete(listener)
+}
+
+function getSnapshot() {
+  return currentStamps
+}
+
+function getServerSnapshot() {
+  return []
+}
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', () => {
+    writeStamps(readStamps())
+  })
+}
+
 export function useStampStore() {
-  const [stamps, setStamps] = useState<StampId[]>(() => readStamps())
+  const stamps = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
-  useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stamps))
-  }, [stamps])
-
-  const actions = useMemo(() => {
-    const hasStamp = (id: string) => stamps.includes(id as StampId)
-    const addStamp = (id: string) => {
-      const stampId = id as StampId
-      setStamps((current) => {
-        if (current.includes(stampId)) {
-          return current
-        }
-        return [...current, stampId]
-      })
-
-      return !hasStamp(id)
+  const hasStamp = (id: string) => stamps.includes(id as StampId)
+  const addStamp = (id: string) => {
+    const stampId = id as StampId
+    if (currentStamps.includes(stampId)) {
+      return false
     }
-    const resetStamps = () => setStamps([])
 
-    return { hasStamp, addStamp, resetStamps }
-  }, [stamps])
+    writeStamps([...currentStamps, stampId])
+    return true
+  }
+  const resetStamps = () => writeStamps([])
 
   return {
     stamps,
     stampCount: stamps.length,
     isComplete: stamps.length === STAMP_TOTAL,
-    ...actions,
+    hasStamp,
+    addStamp,
+    resetStamps,
   }
 }

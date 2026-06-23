@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { CertificateModal } from '../modals/CertificateModal'
 import { CompleteModal } from '../modals/CompleteModal'
@@ -6,42 +5,37 @@ import { StampGetModal } from '../modals/StampGetModal'
 import type { ModalState } from './app-types'
 import { StampsView } from './StampsView'
 
+function getModalState(pathname: string): ModalState {
+  const stampMatch = pathname.match(/^\/stamp\/([^/]+)$/)
+  if (stampMatch) return { type: 'stamp', id: stampMatch[1] }
+  if (pathname === '/complete') return { type: 'complete' }
+  if (pathname === '/certificate') return { type: 'certificate' }
+  return null
+}
+
 export function AppShell() {
   const location = useLocation()
   const navigate = useNavigate()
-  const initialModal = (() => {
-    const stampMatch = location.pathname.match(/^\/stamp\/([^/]+)$/)
-    if (stampMatch) return { type: 'stamp', id: stampMatch[1] } as ModalState
-    if (location.pathname === '/complete') return { type: 'complete' } as ModalState
-    if (location.pathname === '/certificate') return { type: 'certificate' } as ModalState
-    return null
-  })()
-  const [modal, setModal] = useState<ModalState>(initialModal)
-
-  useEffect(() => {
-    if (initialModal) {
-      navigate('/', { replace: true })
-    }
-  }, [initialModal, navigate])
+  const modal = getModalState(location.pathname)
 
   return (
     <>
       <StampsView
         onOpenStamp={(id) => {
-          setModal({ type: 'stamp', id })
+          navigate(`/stamp/${id}`)
         }}
       />
       {modal?.type === 'stamp' ? (
         <StampGetModal
           id={modal.id}
-          onClose={() => setModal(null)}
-          onOpenComplete={() => setModal({ type: 'complete' })}
+          onClose={() => navigate('/', { replace: true })}
+          onOpenComplete={() => navigate('/complete')}
         />
       ) : null}
       {modal?.type === 'complete' ? (
-        <CompleteModal onClose={() => setModal(null)} onOpenCertificate={() => setModal({ type: 'certificate' })} />
+        <CompleteModal onClose={() => navigate('/', { replace: true })} onOpenCertificate={() => navigate('/certificate')} />
       ) : null}
-      {modal?.type === 'certificate' ? <CertificateModal onClose={() => setModal(null)} /> : null}
+      {modal?.type === 'certificate' ? <CertificateModal onClose={() => navigate('/', { replace: true })} /> : null}
     </>
   )
 }
