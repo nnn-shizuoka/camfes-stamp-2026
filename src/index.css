@@ -6,14 +6,8 @@ html, body, #root {
 
 html {
   font-family:
-    "M PLUS Rounded 1c",
-    "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic UI",
-    "Yu Gothic",
-    "Noto Sans JP",
-    system-ui,
-    sans-serif;
+    "Cinzel",
+    serif;
 }
 
 body {
@@ -27,14 +21,8 @@ body {
 
 .font-rounded {
   font-family:
-    "M PLUS Rounded 1c",
-    "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic UI",
-    "Yu Gothic",
-    "Noto Sans JP",
-    system-ui,
-    sans-serif;
+    "Cinzel",
+    serif;
 }
 
 @keyframes modal-pop {
