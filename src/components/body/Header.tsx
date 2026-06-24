@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { ProgressBar } from './ProgressBar'
 
 type HeaderProps = {
@@ -5,7 +6,13 @@ type HeaderProps = {
   total: number
 }
 
-export function Header({ collected, total }: HeaderProps) {
+export function Header({
+  collected,
+  total,
+}: HeaderProps) {
+  const navigate = useNavigate()
+  const isCompleted = collected === total
+
   return (
     <header className="mb-4 pt-5 text-center text-[#d4af37]">
       <div className="px-2 py-4">
@@ -28,6 +35,17 @@ export function Header({ collected, total }: HeaderProps) {
         </div>
         <div className="mt-4">
           <ProgressBar current={collected} total={total} />
+        </div>
+
+        <div className="mt-4">
+          {isCompleted && (
+            <button
+              onClick={() => navigate('/complete')}
+              className="mt-3 w-full rounded-2xl border border-[#8a6d3b] px-5 py-3 font-bold text-xl text-[#8a6d3b] shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
+            >
+              COMPLETE!
+            </button>
+          )}
         </div>
       </div>
     </header>

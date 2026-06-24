@@ -1,36 +1,54 @@
 import { useStampStore } from '../../stamp/stamp-store'
-import { ModalShell } from './ModalShell'
 
 type CompleteModalProps = {
   onClose: () => void
-  onOpenCertificate: () => void
 }
 
-export function CompleteModal({ onClose, onOpenCertificate }: CompleteModalProps) {
+export function CompleteModal({ onClose }: CompleteModalProps) {
   const { isComplete } = useStampStore()
 
-  if (!isComplete) {
-    return null
-  }
+  if (!isComplete) return null
 
   return (
-    <ModalShell title="COMPLETE" subtitle="全10個のスタンプを集めました。" onClose={onClose}>
-      <div className="overflow-hidden rounded-[1.75rem] border border-amber-200 bg-[#fffdf7] p-1">
-        <div className="rounded-[1.5rem] border border-amber-300 bg-[linear-gradient(180deg,#b45309_0%,#f59e0b_55%,#fbbf24_100%)] p-6 text-center text-white shadow-inner">
-          <p className="text-[0.65rem] font-black uppercase tracking-[0.45em]">Complete</p>
-          <p className="mt-3 text-5xl font-black tracking-tight">10 / 10</p>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="complete modal"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-sm animate-[modal-pop_180ms_ease-out] overflow-hidden rounded-4xl border-2 border-[#d4af37] bg-[linear-gradient(180deg,#2c1a04_0%,#120a02_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="p-4">
+          <h2 className="text-center text-3xl font-bold text-[#d4af37]">
+            COMPLETE!
+          </h2>
+
+          <img
+            src="public/certificate.png"
+            alt="賞状"
+            className="mx-auto mt-4 w-64 rounded-2xl bg-white"
+          />
+
+          <a
+            href="public/certificate.png"
+            download
+            className="mt-4 block w-full rounded-2xl bg-[#f4ecd8] px-5 py-3 text-center font-bold text-[#4a3319]"
+          >
+            画像をダウンロード
+          </a>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="mt-3 w-full rounded-2xl border border-[#d4af37] px-5 py-3 font-bold text-[#f4ecd8]"
+          >
+            閉じる
+          </button>
         </div>
-        <p className="mt-5 text-center text-sm font-medium leading-6 text-stone-700">
-          おめでとうございます。CAMFES 2026 の全スタンプを集めました。
-        </p>
-        <button
-          type="button"
-          onClick={onOpenCertificate}
-          className="mt-6 w-full rounded-2xl border border-amber-300 bg-[#fff4d6] px-5 py-4 text-lg font-black text-stone-900 shadow-sm"
-        >
-          賞状を見る
-        </button>
       </div>
-    </ModalShell>
+    </div>
   )
 }

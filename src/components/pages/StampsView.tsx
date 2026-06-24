@@ -1,5 +1,5 @@
 import { Layout } from '../Layout'
-import { StampCard } from '../stamp/StampCard'
+import { StampCard } from '../body/StampCard'
 import { STAMPS, STAMP_TOTAL } from '../../stamp/stamp-data'
 import { useStampStore } from '../../stamp/stamp-store'
 
