@@ -27,13 +27,15 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
           </h2>
 
           <img
-            src="public/certificate.png"
+            src="/certificate.png"
             alt="賞状"
+            loading="eager"
+            fetchPriority="high"
             className="mx-auto mt-4 w-64 rounded-2xl bg-white"
           />
 
           <a
-            href="public/certificate.png"
+            href="/certificate.png"
             download
             className="mt-4 block w-full rounded-2xl bg-[#f4ecd8] px-5 py-3 text-center font-bold text-[#4a3319]"
           >
