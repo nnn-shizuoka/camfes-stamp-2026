@@ -27,7 +27,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
           </h2>
 
           <img
-            src="/certificate.png"
+            src="/camfes-stamp-2026/certificate.png"
             alt="賞状"
             loading="eager"
             fetchPriority="high"
@@ -35,7 +35,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
           />
 
           <a
-            href="/certificate.png"
+            href="/camfes-stamp-2026/certificate.png"
             download
             className="mt-4 block w-full rounded-2xl bg-[#f4ecd8] px-5 py-3 text-center font-bold text-[#4a3319]"
           >
