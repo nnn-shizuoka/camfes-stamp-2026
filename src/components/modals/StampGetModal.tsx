@@ -31,7 +31,7 @@ export function StampGetModal({ id, onClose }: StampGetModalProps) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-xs animate-[modal-pop_180ms_ease-out] overflow-hidden rounded-[2rem] border-2 border-[#d4af37] bg-[linear-gradient(180deg,#2c1a04_0%,#120a02_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
+        className="w-full max-w-xs animate-[modal-pop_180ms_ease-out] overflow-hidden rounded-4xl border-2 border-[#d4af37] bg-[linear-gradient(180deg,#2c1a04_0%,#120a02_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="px-4 py-4 text-center sm:px-5">
