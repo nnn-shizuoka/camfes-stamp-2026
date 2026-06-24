@@ -26,11 +26,7 @@ export function AppShell() {
         }}
       />
       {modal?.type === 'stamp' ? (
-        <StampGetModal
-          id={modal.id}
-          onClose={() => navigate('/', { replace: true })}
-          onOpenComplete={() => navigate('/complete')}
-        />
+        <StampGetModal id={modal.id} onClose={() => navigate('/', { replace: true })} />
       ) : null}
       {modal?.type === 'complete' ? (
         <CompleteModal onClose={() => navigate('/', { replace: true })} onOpenCertificate={() => navigate('/certificate')} />
