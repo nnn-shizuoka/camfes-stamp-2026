@@ -19,12 +19,12 @@ export function AppShell() {
   return (
     <>
       <StampsView
-        onOpenStamp={(id) => {
-          navigate(`/stamp/${id}`)
+        onOpenStamp={(token) => {
+          navigate(`/stamp/${token}`)
         }}
       />
       {modal?.type === 'stamp' ? (
-        <StampGetModal id={modal.id} onClose={() => navigate('/', { replace: true })} />
+        <StampGetModal token={modal.id} onClose={() => navigate('/', { replace: true })} />
       ) : null}
       {modal?.type === 'complete' ? (
         <CompleteModal onClose={() => navigate('/', { replace: true })} />

@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
-import { getStampById } from '../../stamp/stamp-data'
+import { getStampByToken } from '../../stamp/stamp-data'
 import { getStampImageSrc } from '../../stamp/stamp-images'
 import { useStampStore } from '../../stamp/stamp-store'
 
 type StampGetModalProps = {
-  id: string
+  token: string
   onClose: () => void
 }
 
-export function StampGetModal({ id, onClose }: StampGetModalProps) {
+export function StampGetModal({ token, onClose }: StampGetModalProps) {
   const { addStamp } = useStampStore()
-  const stamp = getStampById(id)
+  const stamp = getStampByToken(token)
 
   useEffect(() => {
     if (!stamp) return

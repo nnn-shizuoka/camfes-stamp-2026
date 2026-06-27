@@ -16,7 +16,7 @@ export function StampCard({ stamp, collected }: StampCardProps) {
       }`}
     >
       <div className="relative aspect-square p-0">
-        <p className="font-rounded absolute left-2 top-1 text-left text-[0.62rem] font-black uppercase leading-none tracking-[0.12em] text-[#4a3319]">
+        <p className="absolute left-2 top-1 text-left text-[0.62rem] font-black uppercase leading-none tracking-[0.12em] text-[#4a3319]">
           No.{stamp.id}
         </p>
         {collected ? (

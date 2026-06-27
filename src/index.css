@@ -9,7 +9,12 @@ html {
     "Cinzel",
     serif;
 }
-
+.font-jp {
+  font-family:
+    "Shippori Mincho",
+    serif;
+}
+  
 body {
   margin: 0;
   font-feature-settings: "palt";
@@ -17,12 +22,6 @@ body {
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 28%),
     radial-gradient(circle at right 20%, rgba(0, 210, 255, 0.08), transparent 22%),
     linear-gradient(180deg, #2c1a04 0%, #120a02 100%);
-}
-
-.font-rounded {
-  font-family:
-    "Cinzel",
-    serif;
 }
 
 @keyframes modal-pop {
