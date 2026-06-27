@@ -43,7 +43,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
             />
           </div>
 
-          <h2 className="mt-4 text-2xl font-bold tracking-[0.04em] text-[#f4ecd8]">
+          <h2 className="font-jp mt-4 text-2xl font-bold tracking-[0.04em] text-[#f4ecd8]">
             {stamp.name}
           </h2>
 
@@ -52,7 +52,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
             onClick={onClose}
             className="mt-4 w-full rounded-2xl border border-[#d4af37] bg-[#f4ecd8] px-5 py-3 font-bold text-[#4a3319]"
           >
-            閉じる
+            Close
           </button>
         </div>
       </div>

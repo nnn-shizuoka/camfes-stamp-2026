@@ -17,7 +17,7 @@ export function StampsView({ onOpenStamp }: StampsViewProps) {
         <section className="mx-1 rounded-[15px] border-2 border-[#8a6d3b] bg-[#f4ecd8] px-4 py-5 shadow-[inset_0_0_20px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.5)]">
           <div className="grid grid-cols-2 gap-3">
             {STAMPS.map((stamp) => {
-              const collectedStamp = hasStamp(stamp.token)
+              const collectedStamp = hasStamp(stamp.id)
 
               return (
                 <button
