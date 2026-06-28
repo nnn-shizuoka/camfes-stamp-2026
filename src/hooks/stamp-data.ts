@@ -31,7 +31,7 @@ export const STAMPS: Stamp[] = [
 
 export const STAMP_TOTAL = STAMPS.length
 
-export const getStampById = (id: string) =>
+export const getStampById = (id: StampId) =>
   STAMPS.find((stamp) => stamp.id === id)
 
 export const getStampByToken = (token: string) =>

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Header } from './body/Header'
+import { Header } from '../header/Header'
 
 type LayoutProps = {
   collected?: number

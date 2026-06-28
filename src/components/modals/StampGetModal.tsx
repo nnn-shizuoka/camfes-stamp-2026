@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
-import { getStampByToken } from '../../stamp/stamp-data'
-import { getStampImageSrc } from '../../stamp/stamp-images'
-import { useStampStore } from '../../stamp/stamp-store'
+import { getStampByToken, getStampImageSrc } from '../../hooks/stamp-data'
+import { useStampStore } from '../../hooks/stamp-store'
 
 type StampGetModalProps = {
   token: string

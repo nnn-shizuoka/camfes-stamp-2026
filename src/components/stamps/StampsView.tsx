@@ -1,7 +1,7 @@
-import { Layout } from '../Layout'
-import { StampCard } from '../body/StampCard'
-import { STAMPS, STAMP_TOTAL } from '../../stamp/stamp-data'
-import { useStampStore } from '../../stamp/stamp-store'
+import { Layout } from '../layout/Layout'
+import { StampCard } from './StampCard'
+import { STAMPS, STAMP_TOTAL } from '../../hooks/stamp-data'
+import { useStampStore } from '../../hooks/stamp-store'
 
 type StampsViewProps = {
   onOpenStamp: (id: string) => void

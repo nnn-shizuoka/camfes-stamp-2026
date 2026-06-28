@@ -1,4 +1,4 @@
-import { useStampStore } from '../../stamp/stamp-store'
+import { useStampStore } from '../../hooks/stamp-store'
 
 type CompleteModalProps = {
   onClose: () => void

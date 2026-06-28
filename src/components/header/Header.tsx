@@ -12,7 +12,7 @@ export function Header({
 }: HeaderProps) {
   const navigate = useNavigate()
   const isCompleted = collected === total
-
+  
   return (
     <header className="mb-4 pt-5 text-center text-[#d4af37]">
       <div className="px-2 py-4">

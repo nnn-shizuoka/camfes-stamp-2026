@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react'
 import { STAMP_TOTAL } from './stamp-data'
-import type { StampId } from './stamp-types'
+import type { StampId } from './stamp-data'
 
 const STORAGE_KEY = 'stamps'
 

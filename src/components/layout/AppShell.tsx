@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { CompleteModal } from '../modals/CompleteModal'
 import { StampGetModal } from '../modals/StampGetModal'
-import type { ModalState } from './app-types'
-import { StampsView } from './StampsView'
+import type { ModalState } from '../../hooks/app-types'
+import { StampsView } from '../stamps/StampsView'
 
 function getModalState(pathname: string): ModalState {
   const stampMatch = pathname.match(/^\/stamp\/([^/]+)$/)

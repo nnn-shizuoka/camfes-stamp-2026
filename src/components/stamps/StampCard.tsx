@@ -1,5 +1,5 @@
-import type { Stamp } from '../../stamp/stamp-types'
-import { getStampImageSrc } from '../../stamp/stamp-images'
+import type { Stamp } from '../../hooks/stamp-data'
+import { getStampImageSrc } from '../../hooks/stamp-data'
 
 type StampCardProps = {
   stamp: Stamp
