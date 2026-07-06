@@ -40,7 +40,7 @@ export function Header({
         </div>
 
         <div className="mt-4">
-          {!isCompleted && (
+          {isCompleted && (
             <button
               onClick={() => navigate('/complete')}
               className="mt-2 w-full rounded-2xl border border-[#8a6d3b] px-5 py-3 font-bold text-xl text-[#8a6d3b] shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
