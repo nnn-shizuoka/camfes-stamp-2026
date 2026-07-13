@@ -34,12 +34,20 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
         onClick={(event) => event.stopPropagation()}
       >
         <div className="px-4 py-4 text-center sm:px-5">
-          <div className="mt-4 mx-auto flex h-40 w-40 items-center justify-center rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48">
+          <div className="relative mt-4 mx-auto flex h-40 w-40 items-center justify-center rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48">
             <img
               src={getStampImageSrc(stamp.id)}
               alt={stamp.name}
-              className="h-32 w-32 sm:h-40 sm:w-40"
+              className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_500ms_ease-out_forwards]"
             />
+
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center animate-[stampHammer_750ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]">
+              <img
+                src="/camfes-stamp-2026/public/StampHammer.png"
+                alt="Stamp Hammer"
+                className="h-36 w-36 sm:h-44 sm:w-44"
+              />
+            </div>
           </div>
 
           <h2 className="font-jp mt-4 text-2xl font-bold tracking-[0.04em] text-[#f4ecd8]">
