@@ -43,7 +43,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
 
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center translate-y-1 animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]">
               <img
-                src="/camfes-stamp-2026/public/StampHammer.png"
+                src="/camfes-stamp-2026/StampHammer.png"
                 alt="StampHammer"
                 className="h-36 w-36 sm:h-44 sm:w-44"
               />

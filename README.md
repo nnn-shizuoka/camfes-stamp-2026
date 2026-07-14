@@ -1,73 +1,21 @@
-# React + TypeScript + Vite
+# 概要
+キャンフェスの各企画の参加率向上を目的としたスタンプラリー企画用のWebアプリ。
+## キャンフェス当日の運用
+当日はまず[キャンフェスサイト2026](https://nnn-shizuoka.github.io/campus-festival-2026/)へのアクセスを誘導します。
+サイト内のボタンから「来場記念スタンプ」を獲得することができます。
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+その他のスタンプは、各企画にQRコード配置し、読み込むことで獲得できます。
 
-Currently, two official plugins are available:
+全てのスタンプを獲得すると名前入りの賞状をダウンロードすることができます。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 獲得スタンプ一覧
+- [来場記念](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Xk92Ab)
+- [飲食ブース](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Pq7LmN)
+- [謎解き](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Rt5ZcQ)
+- [クイズ](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Jm8WpK)
+- [イントロドン](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Vn3HsD)
+- [ロゴクイズ](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/By6TrF)
+- [物販ブース](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Qp4XeM)
+- [フォトスポット](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Ld9KuR)
+- [占いブース](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Gs2YwN)
+- [ゲームブース](https://nnn-shizuoka.github.io/camfes-stamp-2026/#/stamp/Hf7PaC)
