@@ -56,51 +56,57 @@ body {
     animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.35);
   }
 
-  /* 押す直前 */
-  42% {
-    transform: translateY(-8px) rotate(-2deg) scale(1.02);
-    animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  /* 押す直前、タメを作る(ここでグッと減速) */
+  38% {
+    transform: translateY(-30px) rotate(-5deg) scale(1.02);
+    animation-timing-function: cubic-bezier(0.1, 0.7, 0.3, 1);
   }
 
-  /* 押す瞬間(インパクト) */
-  50% {
-    transform: translateY(10px) rotate(0deg) scale(0.96, 1.04);
-    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* さらにタメ(ほぼ静止に近い、ここが"ゆっくり押す"感の核) */
+  48% {
+    transform: translateY(-6px) rotate(-2deg) scale(1.03);
+    animation-timing-function: cubic-bezier(0.3, 0.9, 0.4, 1);
   }
 
-  /* 軽くバウンド */
+  /* 押す瞬間(インパクト、じわっと押し込む) */
   58% {
-    transform: translateY(4px) rotate(0deg) scale(1.01, 0.98);
+    transform: translateY(-4px) rotate(0deg) scale(1.05, 0.95);
+    animation-timing-function: cubic-bezier(0.34, 1.2, 0.5, 1);
+  }
+
+  /* 軽くバウンド(控えめに) */
+  65% {
+    transform: translateY(-9px) rotate(0deg) scale(1.005, 0.99);
     animation-timing-function: ease-out;
   }
 
   /* 押したまま静止 */
-  68% {
-    transform: translateY(8px) rotate(0deg) scale(1);
+  74% {
+    transform: translateY(-7px) rotate(0deg) scale(1);
     animation-timing-function: ease-in-out;
   }
 
-  /* 押したままキープ(ここまでは変更なし) */
-  75% {
-    transform: translateY(8px) rotate(0deg) scale(1);
-    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /* ここから持ち上がりが始まる。滑らかな立ち上がり */
+  /* 押したままキープ */
+  80% {
+    transform: translateY(-7px) rotate(0deg) scale(1);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   /* 持ち上がり始め(まだゆっくり) */
-  83% {
+  87% {
     transform: translateY(-40px) rotate(-6deg) scale(1);
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* だんだん減速していく */
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   /* さらに上昇、減速しながら頂点へ */
-  93% {
+  95% {
     opacity: 1;
     transform: translateY(-110px) rotate(-13deg) scale(1);
-    animation-timing-function: ease-out; /* 最後はふわっと止まる */
+    animation-timing-function: ease-out;
   }
 
   /* 頂点に到達、少し待機 */
-  97% {
+  98% {
     opacity: 1;
     transform: translateY(-120px) rotate(-15deg) scale(1);
   }
