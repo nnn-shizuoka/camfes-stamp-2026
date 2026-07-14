@@ -66,7 +66,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
             download={`${username || 'guest'}-certificate.png`}
             className="mt-4 block w-full rounded-2xl bg-[#f4ecd8] px-5 py-3 text-center font-bold text-[#4a3319]"
           >
-            画像をダウンロード
+            Download
           </a>
 
           <button
@@ -74,7 +74,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
             onClick={onClose}
             className="mt-3 w-full rounded-2xl border border-[#d4af37] px-5 py-3 font-bold text-[#f4ecd8]"
           >
-            閉じる
+            Close
           </button>
         </div>
       </div>

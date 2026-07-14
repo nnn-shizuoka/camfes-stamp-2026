@@ -67,7 +67,7 @@ export function Header({
                   if (event.key === 'Escape') setIsEditing(false)
                 }}
                 maxLength={20}
-                placeholder="お名前を入力(8文字以下推奨)"
+                placeholder="名前を入力(8文字以下推奨)"
                 className="font-jp h-9 min-w-0 flex-1 rounded-xl border border-[#8a6d3b]/40 bg-white px-3 text-md font-bold text-[#4a3319] outline-none"
               />
               <button
@@ -81,7 +81,7 @@ export function Header({
           ) : (
             <>
               <p className="font-jp min-w-0 flex-1 truncate text-left text-lg font-bold leading-none text-[#4a3319]">
-                <span className="text-[#7a5a2c]">ニックネーム： </span>{username ? username : ''}
+                <span className="text-[#7a5a2c]">名前： </span>{username ? username : ''}
               </p>
               <button
                 type="button"
