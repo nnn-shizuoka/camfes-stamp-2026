@@ -22,7 +22,7 @@ export function StampCard({ stamp, collected }: StampCardProps) {
         {collected ? (
             <div className="flex h-full items-center justify-center">
               <img
-                src={getStampImageSrc(stamp.id)}
+                src={getStampImageSrc(stamp.name)}
                 alt={`${stamp.name} スタンプ`}
                 className="h-24 w-24 select-none translate-y-1 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
                 draggable={false}

@@ -27,7 +27,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
 
       // 名前の位置・フォントは賞状デザインに合わせて調整してください
       ctx.font = `bold ${canvas.width * 0.08}px serif`
-      ctx.fillStyle = '#4a3319'
+      ctx.fillStyle = '#000'
       ctx.textAlign = 'center'
       ctx.fillText(username || 'ゲスト', canvas.width / 2.2, canvas.height * 0.385)
 
@@ -63,7 +63,7 @@ export function CompleteModal({ onClose }: CompleteModalProps) {
 
           <a
             href={imageUrl ?? '/camfes-stamp-2026/camfes-certificate.png'}
-            download={`${username || 'guest'}-certificate.png`}
+            download={`${username || 'guest'}_キャンフェススタンプラリー賞状.png`}
             className="mt-4 block w-full rounded-2xl bg-[#f4ecd8] px-5 py-3 text-center font-bold text-[#4a3319]"
           >
             Download

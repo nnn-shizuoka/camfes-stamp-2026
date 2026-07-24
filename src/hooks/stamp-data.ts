@@ -9,6 +9,8 @@ export type StampId =
   | '8'
   | '9'
   | '10'
+  | '11'
+  | '12'
 
 export type Stamp = {
   id: StampId
@@ -17,16 +19,18 @@ export type Stamp = {
 }
 
 export const STAMPS: Stamp[] = [
-  { id: '1', name: '来場記念', token: 'Xk92Ab' },
-  { id: '2', name: '飲食ブース', token: 'Pq7LmN' },
-  { id: '3', name: '謎解き', token: 'Rt5ZcQ' },
-  { id: '4', name: 'クイズ', token: 'Jm8WpK' },
-  { id: '5', name: 'イントロドン', token: 'Vn3HsD' },
-  { id: '6', name: 'ロゴクイズ', token: 'By6TrF' },
-  { id: '7', name: '物販ブース', token: 'Qp4XeM' },
-  { id: '8', name: 'フォトスポット', token: 'Ld9KuR' },
-  { id: '9', name: '占いブース', token: 'Gs2YwN' },
-  { id: '10', name: 'ゲームブース', token: 'Hf7PaC' },
+  { id: '1', name: '来場記念', token: 'Xt4kRp' },
+  { id: '2', name: '飲食ブース', token: 'Bn8QwZ' },
+  { id: '3', name: '物販ブース', token: 'Ym3TfL' },
+  { id: '4', name: '占いブース', token: 'Cd7NsK' },
+  { id: '5', name: 'フォトスポット', token: 'Wq2ZbH' },
+  { id: '6', name: 'ゲームブース', token: 'Fj9LpX' },
+  { id: '7', name: '少数派クイズ', token: 'Rk5MtV' },
+  { id: '8', name: 'ロゴクイズ', token: 'Zx3QcB' },
+  { id: '9', name: '漢字クイズ', token: 'Nv6WdP' },
+  { id: '10', name: '謎解き', token: 'Ht8YrK' },
+  { id: '11', name: 'イントロドン', token: 'Lm4GpS' },
+  { id: '12', name: 'クイズ', token: 'Qw7NxF' },
 ]
 
 export const STAMP_TOTAL = STAMPS.length
@@ -37,5 +41,5 @@ export const getStampById = (id: StampId) =>
 export const getStampByToken = (token: string) =>
   STAMPS.find((stamp) => stamp.token === token)
 
-export const getStampImageSrc = (id: StampId) =>
-  `/camfes-stamp-2026/stamps/${id}.svg`
+export const getStampImageSrc = (name: string) =>
+  `/camfes-stamp-2026/stamps/${name}.png`

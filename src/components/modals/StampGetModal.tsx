@@ -36,7 +36,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
         <div className="px-4 py-4 text-center sm:px-5">
           <div className="relative mt-4 mx-auto flex h-40 w-40 items-center justify-center rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48">
             <img
-              src={getStampImageSrc(stamp.id)}
+              src={getStampImageSrc(stamp.name)}
               alt={stamp.name}
               className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_750ms_ease-out_forwards]"
             />

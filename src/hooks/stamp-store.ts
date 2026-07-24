@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { STAMP_TOTAL } from './stamp-data'
+import { STAMPS, STAMP_TOTAL } from './stamp-data'
 import type { StampId } from './stamp-data'
 
 const STORAGE_KEY = 'stamps'
@@ -16,7 +16,10 @@ function readStamps(): StampId[] {
     if (!raw) return []
     const parsed = JSON.parse(raw)
     if (!Array.isArray(parsed)) return []
-    const unique = parsed.filter((value): value is StampId => typeof value === 'string') as StampId[]
+    const validIds = new Set(STAMPS.map((stamp) => stamp.id))
+    const unique = parsed.filter(
+      (value): value is StampId => typeof value === 'string' && validIds.has(value as StampId),
+    )
     return Array.from(new Set(unique))
   } catch {
     return []
