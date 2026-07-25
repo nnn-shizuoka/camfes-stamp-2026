@@ -11,6 +11,7 @@ export type StampId =
   | '10'
   | '11'
   | '12'
+  | '13'
 
 export type Stamp = {
   id: StampId
@@ -26,11 +27,12 @@ export const STAMPS: Stamp[] = [
   { id: '5', name: 'フォトスポット', token: 'Wq2ZbH' },
   { id: '6', name: 'ゲームブース', token: 'Fj9LpX' },
   { id: '7', name: '少数派クイズ', token: 'Rk5MtV' },
-  { id: '8', name: 'ロゴクイズ', token: 'Zx3QcB' },
-  { id: '9', name: '漢字クイズ', token: 'Nv6WdP' },
-  { id: '10', name: '謎解き', token: 'Ht8YrK' },
-  { id: '11', name: 'イントロドン', token: 'Lm4GpS' },
-  { id: '12', name: 'クイズ', token: 'Qw7NxF' },
+  { id: '8', name: '重ね字クイズ', token: 'Gq6NvW' },
+  { id: '9', name: 'ロゴクイズ', token: 'Zx3QcB' },
+  { id: '10', name: '漢字クイズ', token: 'Nv6WdP' },
+  { id: '11', name: '謎解き', token: 'Ht8YrK' },
+  { id: '12', name: 'イントロドン', token: 'Lm4GpS' },
+  { id: '13', name: 'クイズ', token: 'Qw7NxF' },
 ]
 
 export const STAMP_TOTAL = STAMPS.length
@@ -41,5 +43,8 @@ export const getStampById = (id: StampId) =>
 export const getStampByToken = (token: string) =>
   STAMPS.find((stamp) => stamp.token === token)
 
-export const getStampImageSrc = (name: string) =>
-  `/camfes-stamp-2026/stamps/${name}.png`
+export const getStampImageSrc = (name: string) => {
+  // The existing 漢字クイズ file has a decomposed dakuten in its filename.
+  const fileName = name === '漢字クイズ' ? '漢字クイス\u3099' : name
+  return `/camfes-stamp-2026/stamps/${encodeURIComponent(fileName)}.png`
+}

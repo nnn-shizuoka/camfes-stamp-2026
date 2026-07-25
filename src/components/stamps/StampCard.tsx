@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Stamp } from '../../hooks/stamp-data'
 import { getStampImageSrc } from '../../hooks/stamp-data'
 
@@ -7,6 +8,8 @@ type StampCardProps = {
 }
 
 export function StampCard({ stamp, collected }: StampCardProps) {
+  const [imageFailed, setImageFailed] = useState(false)
+
   return (
     <div
       className={`relative aspect-square w-full overflow-hidden rounded-[1.4rem] border-2 p-3 transition duration-200 ${
@@ -19,15 +22,16 @@ export function StampCard({ stamp, collected }: StampCardProps) {
         <p className="absolute left-2 top-1 text-left text-[0.62rem] font-black uppercase leading-none tracking-[0.12em] text-[#4a3319]">
           No.{stamp.id}
         </p>
-        {collected ? (
-            <div className="flex h-full items-center justify-center">
+        {collected && !imageFailed ? (
+          <div className="flex h-full items-center justify-center">
               <img
                 src={getStampImageSrc(stamp.name)}
                 alt={`${stamp.name} スタンプ`}
                 className="h-24 w-24 select-none translate-y-1 opacity-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
                 draggable={false}
+                onError={() => setImageFailed(true)}
               />
-            </div>
+          </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="h-22 w-22 translate-y-1 rounded-full border-2 border-[#8a6d3b] bg-transparent" />

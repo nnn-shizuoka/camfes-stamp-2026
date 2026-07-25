@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { getStampByToken, getStampImageSrc } from '../../hooks/stamp-data'
 import { useStampStore } from '../../hooks/stamp-store'
 
@@ -10,6 +10,7 @@ type StampGetModalProps = {
 export function StampGetModal({ token, onClose }: StampGetModalProps) {
   const { addStamp } = useStampStore()
   const stamp = getStampByToken(token)
+  const [imageFailed, setImageFailed] = useState(false)
 
   useEffect(() => {
     if (!stamp) return
@@ -35,11 +36,16 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
       >
         <div className="px-4 py-4 text-center sm:px-5">
           <div className="relative mt-4 mx-auto flex h-40 w-40 items-center justify-center rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48">
-            <img
-              src={getStampImageSrc(stamp.name)}
-              alt={stamp.name}
-              className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_750ms_ease-out_forwards]"
-            />
+            {imageFailed ? (
+              <div className="h-24 w-24 rounded-full border-2 border-[#8a6d3b] bg-transparent" />
+            ) : (
+              <img
+                src={getStampImageSrc(stamp.name)}
+                alt={stamp.name}
+                className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_750ms_ease-out_forwards]"
+                onError={() => setImageFailed(true)}
+              />
+            )}
 
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center translate-y-1 animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]">
               <img
