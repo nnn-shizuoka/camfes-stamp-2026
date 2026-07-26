@@ -18,6 +18,7 @@ export function StampsView({ onOpenStamp }: StampsViewProps) {
           <div className="grid grid-cols-2 gap-3">
             {STAMPS.map((stamp) => {
               const collectedStamp = hasStamp(stamp.id)
+              const featured = stamp.id === '1'
 
               return (
                 <button
@@ -25,9 +26,9 @@ export function StampsView({ onOpenStamp }: StampsViewProps) {
                   type="button"
                   onClick={() => onOpenStamp(stamp.token)}
                   disabled={!collectedStamp}
-                  className="aspect-square w-full text-left disabled:cursor-default"
+                  className={`${featured ? 'col-span-2 aspect-[3/2]' : 'aspect-square'} w-full text-left disabled:cursor-default`}
                 >
-                  <StampCard stamp={stamp} collected={collectedStamp} />
+                  <StampCard stamp={stamp} collected={collectedStamp} featured={featured} />
                 </button>
               )
             })}
