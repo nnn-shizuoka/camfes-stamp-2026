@@ -33,7 +33,7 @@ export const STAMPS: Stamp[] = [
   { id: '10', name: '漢字クイズ', image: 'kanji-quiz.png', token: 'Nv6WdP' },
   { id: '11', name: '謎解き', image: 'riddle.png', token: 'Ht8YrK' },
   { id: '12', name: 'イントロドン', image: 'introdon.png', token: 'Lm4GpS' },
-  { id: '13', name: 'クイズ', image: 'quiz.png', token: 'Qw7NxF' },
+  { id: '13', name: 'クイズ・テトラ', image: 'quiz-tetra.png', token: 'Qw7NxF' },
 ]
 
 export const STAMP_TOTAL = STAMPS.length
