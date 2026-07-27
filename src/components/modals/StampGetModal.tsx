@@ -40,7 +40,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
               <div className="h-24 w-24 rounded-full border-2 border-[#8a6d3b] bg-transparent" />
             ) : (
               <img
-                src={getStampImageSrc(stamp.name)}
+                src={getStampImageSrc(stamp.image)}
                 alt={stamp.name}
                 className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_750ms_ease-out_forwards]"
                 onError={() => setImageFailed(true)}

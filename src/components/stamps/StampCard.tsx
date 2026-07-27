@@ -26,7 +26,7 @@ export function StampCard({ stamp, collected, featured = false }: StampCardProps
         {collected && !imageFailed ? (
           <div className="absolute inset-0 flex items-center justify-center">
               <img
-                src={getStampImageSrc(stamp.name)}
+                src={getStampImageSrc(stamp.image)}
                 alt={`${stamp.name} スタンプ`}
                 className={`${featured ? '' : 'translate-y-1'} h-[80%] w-auto select-none opacity-100`}
                 draggable={false}
