@@ -8,16 +8,16 @@ type StampGetModalProps = {
 }
 
 export function StampGetModal({ token, onClose }: StampGetModalProps) {
-  const { addStamp } = useStampStore()
+  const { addStamp, hasStamp } = useStampStore()
   const stamp = getStampByToken(token)
   const [imageFailed, setImageFailed] = useState(false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isNewStamp] = useState(() => (stamp ? !hasStamp(stamp.id) : false))
 
   useEffect(() => {
     if (!stamp) return
 
-    if (addStamp(stamp.id)) {
-      window.navigator.vibrate?.(120)
-    }
+    addStamp(stamp.id)
   }, [addStamp, stamp])
 
   if (!stamp) return null
@@ -28,33 +28,60 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
       role="dialog"
       aria-modal="true"
       aria-label="stamp modal"
-      onClick={onClose}
+      onClick={() => {
+        if (!isNewStamp || isPressed) onClose()
+      }}
     >
       <div
         className="w-full max-w-xs animate-[modal-pop_180ms_ease-out] overflow-hidden rounded-4xl border-2 border-[#d4af37] bg-[linear-gradient(180deg,#2c1a04_0%,#120a02_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.6)]"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="px-4 py-4 text-center sm:px-5">
-          <div className="relative mt-4 mx-auto flex h-40 w-40 items-center justify-center rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48">
+          <button
+            type="button"
+            className="relative mt-4 mx-auto block h-40 w-40 rounded-full border-8 border-[#f7e7c8] bg-[#fff9ef] shadow-[0_12px_24px_rgba(120,70,15,0.18)] sm:h-48 sm:w-48"
+            onClick={() => {
+              if (isNewStamp && !isPressed) {
+                setIsPressed(true)
+              }
+            }}
+            aria-label={isNewStamp && !isPressed ? 'スタンプを押す' : undefined}
+          >
             {imageFailed ? (
-              <div className="h-24 w-24 rounded-full border-2 border-[#8a6d3b] bg-transparent" />
+              <div className="absolute inset-0 m-auto h-24 w-24 rounded-full border-2 border-[#8a6d3b] bg-transparent" />
             ) : (
               <img
                 src={getStampImageSrc(stamp.image)}
                 alt={stamp.name}
-                className="h-32 w-32 sm:h-40 sm:w-40 animate-[stampAppear_750ms_ease-out_forwards]"
+                className={`absolute inset-0 m-auto h-32 w-32 sm:h-40 sm:w-40 ${
+                  isNewStamp && !isPressed
+                    ? 'opacity-0'
+                    : 'animate-[stampAppear_750ms_ease-out_forwards]'
+                }`}
                 onError={() => setImageFailed(true)}
               />
             )}
 
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center translate-y-1 animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]">
+            <div
+              className={`pointer-events-none absolute inset-0 flex items-center justify-center translate-y-1 ${
+                !isNewStamp || isPressed
+                  ? 'animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]'
+                  : 'opacity-0'
+              }`}
+            >
               <img
                 src="/camfes-stamp-2026/StampHammer.png"
                 alt="StampHammer"
                 className="h-36 w-36 sm:h-44 sm:w-44"
               />
             </div>
-          </div>
+
+            {isNewStamp && !isPressed ? (
+              <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-2xl font-black tracking-[0.12em] text-[#8a6d3b]">
+                TAP!
+              </span>
+            ) : null}
+          </button>
 
           <h2 className="font-jp mt-4 text-2xl font-bold tracking-[0.04em] text-[#f4ecd8]">
             {stamp.name}
@@ -63,7 +90,8 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="mt-4 w-full rounded-2xl border border-[#d4af37] bg-[#f4ecd8] px-5 py-3 font-bold text-[#4a3319]"
+            disabled={isNewStamp && !isPressed}
+            className="mt-4 w-full rounded-2xl border border-[#d4af37] bg-[#f4ecd8] px-5 py-3 font-bold text-[#4a3319] disabled:cursor-not-allowed disabled:opacity-50"
           >
             Close
           </button>
