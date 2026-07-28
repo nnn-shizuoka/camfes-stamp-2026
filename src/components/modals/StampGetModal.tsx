@@ -13,6 +13,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
   const [imageFailed, setImageFailed] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [isNewStamp] = useState(() => (stamp ? !hasStamp(stamp.id) : false))
+  const [showStamp, setShowStamp] = useState(() => (stamp ? hasStamp(stamp.id) : false))
 
   useEffect(() => {
     if (!stamp) return
@@ -43,6 +44,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
             onClick={() => {
               if (isNewStamp && !isPressed) {
                 setIsPressed(true)
+                window.setTimeout(() => setShowStamp(true), 550)
               }
             }}
             aria-label={isNewStamp && !isPressed ? 'スタンプを押す' : undefined}
@@ -54,7 +56,7 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
                 src={getStampImageSrc(stamp.image)}
                 alt={stamp.name}
                 className={`absolute inset-0 m-auto h-32 w-32 sm:h-40 sm:w-40 ${
-                  isNewStamp && !isPressed
+                  isNewStamp && !showStamp
                     ? 'opacity-0'
                     : 'animate-[stampAppear_750ms_ease-out_forwards]'
                 }`}
@@ -65,7 +67,9 @@ export function StampGetModal({ token, onClose }: StampGetModalProps) {
             <div
               className={`pointer-events-none absolute inset-0 flex items-center justify-center translate-y-1 ${
                 !isNewStamp || isPressed
-                  ? 'animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]'
+                  ? isNewStamp
+                    ? 'animate-[stampHammer_1800ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]'
+                    : 'animate-[stampHammer_1000ms_cubic-bezier(0.25,0.1,0.25,1)_forwards]'
                   : 'opacity-0'
               }`}
             >
