@@ -28,7 +28,7 @@ export const STAMPS: Stamp[] = [
   { id: '5', name: 'フォトスポット', image: 'photo-spot.png', token: 'Wq2ZbH' },
   { id: '6', name: 'ゲームブース', image: 'games.png', token: 'Fj9LpX' },
   { id: '7', name: '少数派クイズ', image: 'minority-quiz.png', token: 'Rk5MtV' },
-  { id: '8', name: '重ね字クイズ', image: 'stacked-characters-quiz.png', token: 'Gq6NvW' },
+  { id: '8', name: '重ね字クイズ', image: 'kasaneji-quiz.png', token: 'Gq6NvW' },
   { id: '9', name: 'ロゴクイズ', image: 'logo-quiz.png', token: 'Zx3QcB' },
   { id: '10', name: '漢字クイズ', image: 'kanji-quiz.png', token: 'Nv6WdP' },
   { id: '11', name: '謎解き', image: 'riddle.png', token: 'Ht8YrK' },
