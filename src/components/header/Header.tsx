@@ -35,7 +35,7 @@ export function Header({
           Stamp Rally
         </p>
         <p className="mt-1 text-xl font-bold tracking-[0.14em] text-white/90">
-          Campus Festival 2026 こんにちわ
+          Campus Festival 2026
         </p>
       </div>
 
