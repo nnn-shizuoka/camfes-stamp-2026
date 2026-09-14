@@ -2,6 +2,12 @@ import { useSyncExternalStore } from 'react'
 import { STAMPS, STAMP_TOTAL } from './stamp-data'
 import type { StampId } from './stamp-data'
 
+const RESET_AT = new Date('2026-09-19T09:00:00+09:00').getTime()
+
+if (typeof window !== 'undefined' && Date.now() >= RESET_AT) {
+  window.localStorage.clear()
+}
+
 const STORAGE_KEY = 'stamps'
 const USERNAME_STORAGE_KEY = 'stamps-username'
 
