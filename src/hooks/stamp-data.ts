@@ -29,9 +29,9 @@ export const STAMPS: Stamp[] = [
   { id: '7', name: '少数派クイズ', image: 'minority-quiz.png', token: 'Rk5MtV' },
   { id: '8', name: 'ロゴクイズ', image: 'logo-quiz.png', token: 'Zx3QcB' },
   { id: '9', name: '漢字クイズ', image: 'kanji-quiz.png', token: 'Nv6WdP' },
-  { id: '10', name: '謎解き', image: 'riddle.png', token: 'Ht8YrK' },
-  { id: '11', name: 'イントロドン', image: 'introdon.png', token: 'Lm4GpS' },
-  { id: '12', name: 'クイズ・テトラ', image: 'quiz-tetra.png', token: 'Qw7NxF' },
+  { id: '10', name: 'クイズ・テトラ', image: 'quiz-tetra.png', token: 'Qw7NxF' },
+  { id: '11', name: '謎解き', image: 'riddle.png', token: 'Ht8YrK' },
+  { id: '12', name: 'イントロドン', image: 'introdon.png', token: 'Lm4GpS' },
 ]
 
 export const STAMP_TOTAL = STAMPS.length
